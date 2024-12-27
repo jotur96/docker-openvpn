@@ -7,10 +7,24 @@ docker-compose run --rm openvpn ovpn_genconfig -u udp://<IP-DE-TU-SERVIDOR>
 docker-compose run --rm openvpn ovpn_initpki
 ```
 
-##s PERMISOS
+## PERMISOS
 
 ```bash
 sudo chown -R $(whoami): ./openvpn-data
+```
+
+## Configurar TUN
+
+### Verificar que este activado el TUN
+
+```bash
+ls -l /dev/net/tun
+```
+
+### Si no esta activaod, activar con
+
+```bash
+sudo modprobe tun
 ```
 
 
