@@ -1,8 +1,13 @@
-version: '2'
+version: "3.8"
 services:
   openvpn:
     cap_add:
      - NET_ADMIN
+    devices:
+     - /dev/net/tun
+    sysctls:
+     net.ipv6.conf.default.forwarding: "1"
+     net.ipv6.conf.all.forwarding: "1"
     image: kylemanna/openvpn
     container_name: openvpn
     ports:
